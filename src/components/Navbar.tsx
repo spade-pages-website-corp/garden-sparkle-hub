@@ -3,7 +3,7 @@ import { Phone } from "lucide-react";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-sm items-center">
       <div className="container flex items-center justify-between py-3">
         <a href="#" className="flex items-center gap-3">
           <img src={logo} alt="Calgary Landscape Supplies" className="h-14 w-auto" />
