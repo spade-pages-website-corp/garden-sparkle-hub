@@ -14,7 +14,7 @@ const images = [
   { src: sodInstall, alt: "Sod installation", label: "Sod Installation" },
   { src: snowRemoval, alt: "Snow removal service", label: "Snow Removal" },
   { src: gravelPath, alt: "Gravel pathway", label: "Gravel Pathways" },
-  { src: frontYard, alt: "Front yard landscaping", label: "Front Yard" },
+  { src: frontYard, alt: "Front yard landscaping", label: "Landscaping" },
   { src: walkway, alt: "Walkway installation", label: "Walkways" },
   { src: sideYard, alt: "Side yard work", label: "Side Yards" },
   { src: backYard, alt: "Back yard landscaping", label: "Sod Installation" },
