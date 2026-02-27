@@ -68,7 +68,7 @@ const QuoteForm = () => {
     "w-full px-4 py-3 rounded-md border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow font-body";
 
   return (
-    <section id="quote" className="py-24 section-alt">
+    <section id="quote" className="py-24">
       <div className="container">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
