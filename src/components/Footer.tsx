@@ -1,6 +1,6 @@
 import logo from "@/assets/logo.png";
 import spadePowered from "@/assets/spade-powered.webp";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -55,6 +55,15 @@ const Footer = () => {
               >
                 <Mail className="h-4 w-4 text-accent shrink-0" />
                 <span>info@calgarylandscapesupplies.ca</span>
+              </a>
+              <a
+                href="https://www.instagram.com/calgarylandscapesupply?igsh=aDQzMGRvYXY4ajdp&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 hover:text-accent transition-colors"
+              >
+                <Instagram className="h-4 w-4 text-accent shrink-0" />
+                <span>@calgarylandscapesupply</span>
               </a>
             </div>
           </div>
