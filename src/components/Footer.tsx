@@ -30,9 +30,13 @@ const Footer = () => {
                 <MapPin className="h-4 w-4 text-accent shrink-0" />
                 <span>Calgary, Okotoks & Foothills, AB</span>
               </div>
+              <a href="tel:4038185857" className="flex items-center gap-3 hover:text-accent transition-colors">
+                <Phone className="h-4 w-4 text-accent shrink-0" />
+                <span>Rick — (403) 818-5857</span>
+              </a>
               <a href="tel:5878971602" className="flex items-center gap-3 hover:text-accent transition-colors">
                 <Phone className="h-4 w-4 text-accent shrink-0" />
-                <span>(587) 897-1602</span>
+                <span>Kaden — (587) 897-1602</span>
               </a>
               <a href="mailto:kaden.calgarylandscapesupplies@gmail.com" className="flex items-center gap-3 hover:text-accent transition-colors">
                 <Mail className="h-4 w-4 text-accent shrink-0" />
