@@ -19,6 +19,7 @@ const Footer = () => {
               <a href="/bulk-materials" className="block hover:text-accent transition-colors">Bulk Materials</a>
               <a href="/#gallery" className="block hover:text-accent transition-colors">Our Work</a>
               <a href="/#quote" className="block hover:text-accent transition-colors">Get a Quote</a>
+              <a href="/about" className="block hover:text-accent transition-colors">About Us</a>
             </div>
           </div>
           <div>
