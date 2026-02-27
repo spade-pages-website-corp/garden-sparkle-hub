@@ -1,4 +1,4 @@
-import heroImg from "@/assets/gallery/hero-house.webp";
+import heroImg from "@/assets/gallery/snow-removal.webp";
 
 const HeroSection = () => {
   return (
