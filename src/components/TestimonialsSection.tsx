@@ -66,10 +66,10 @@ const TestimonialsSection = () => {
           onMouseLeave={() => setIsPaused(false)}
         >
           {/* Card */}
-          <div className="bg-card rounded-lg p-8 md:p-12 shadow-sm min-h-[280px] flex flex-col justify-center">
+          <div className="bg-card rounded-lg p-8 md:p-12 shadow-sm min-h-[340px] md:min-h-[300px] flex flex-col justify-center transition-all duration-500 ease-in-out">
             <Quote className="w-10 h-10 text-accent/30 mb-6 shrink-0" />
 
-            <div key={active} className="animate-fade-up">
+            <div key={active} className="animate-fade-in" style={{ animationDuration: '0.5s' }}>
               <blockquote className="text-foreground/80 text-lg md:text-xl leading-relaxed mb-8 font-light italic">
                 "{testimonials[active].quote}"
               </blockquote>
