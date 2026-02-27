@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Quote } from "lucide-react";
 
 const testimonials = [
@@ -17,7 +17,7 @@ const testimonials = [
   {
     quote:
       "Had them do our entire front yard — grading, sod, and a new gravel walkway. The crew showed up on time every day and left the site spotless. Neighbours have been asking who did the work. Couldn't be happier.",
-    name: "M. Chicken",
+    name: "R. McFarland",
     location: "Okotoks, AB",
   },
   {
@@ -40,34 +40,10 @@ const TestimonialsSection = () => {
 
   const [cardMinHeight, setCardMinHeight] = useState<number | null>(null);
   const measureRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const touchStartX = useRef<number | null>(null);
-  const touchStartY = useRef<number | null>(null);
 
   const next = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
   }, []);
-
-  const prev = useCallback(() => {
-    setActive((p) => (p - 1 + testimonials.length) % testimonials.length);
-  }, []);
-
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.touches[0].clientY;
-  }, []);
-
-  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
-    if (touchStartX.current === null || touchStartY.current === null) return;
-    const dx = e.changedTouches[0].clientX - touchStartX.current;
-    const dy = e.changedTouches[0].clientY - touchStartY.current;
-    touchStartX.current = null;
-    touchStartY.current = null;
-    // Only trigger if horizontal swipe is dominant and exceeds threshold
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-      if (dx < 0) next();
-      else prev();
-    }
-  }, [next, prev]);
 
   useEffect(() => {
     if (isPaused) return;
@@ -77,9 +53,7 @@ const TestimonialsSection = () => {
 
   const recomputeMinHeight = useCallback(() => {
     // measure tallest slide content
-    const heights = measureRefs.current
-      .map((el) => el?.getBoundingClientRect().height ?? 0)
-      .filter(Boolean);
+    const heights = measureRefs.current.map((el) => el?.getBoundingClientRect().height ?? 0).filter(Boolean);
 
     const max = Math.max(0, ...heights);
 
@@ -108,12 +82,8 @@ const TestimonialsSection = () => {
     <section className="py-24 section-alt">
       <div className="container">
         <div className="text-center mb-16">
-          <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-3">
-            Testimonials
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold">
-            What People Say
-          </h2>
+          <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-3">Testimonials</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">What People Say</h2>
         </div>
 
         <div
@@ -123,9 +93,7 @@ const TestimonialsSection = () => {
         >
           {/* Card */}
           <div
-            className="bg-card rounded-lg p-8 md:p-12 shadow-sm flex flex-col justify-center touch-pan-y"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
+            className="bg-card rounded-lg p-8 md:p-12 shadow-sm flex flex-col justify-center"
             style={cardMinHeight ? { minHeight: `${cardMinHeight}px` } : undefined}
           >
             <Quote className="w-10 h-10 text-accent/30 mb-6 shrink-0 relative z-10" />
@@ -147,9 +115,7 @@ const TestimonialsSection = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-[2px] bg-accent" />
                     <div>
-                      <p className="font-display text-sm uppercase tracking-wider font-semibold">
-                        {t.name}
-                      </p>
+                      <p className="font-display text-sm uppercase tracking-wider font-semibold">{t.name}</p>
                       <p className="text-muted-foreground text-sm">{t.location}</p>
                     </div>
                   </div>
