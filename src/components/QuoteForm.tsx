@@ -27,7 +27,7 @@ const serviceOptions = [
 const QuoteForm = () => {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState<ContactRequest>({
-    siteId: "calgary-landscape-supplies",
+    siteId: "093d1c28-6eac-4e24-860b-78d7524cdbf1",
     fullName: "",
     replyEmail: "",
     serviceType: "",
@@ -36,21 +36,20 @@ const QuoteForm = () => {
     description: "",
   });
 
-  const update = (field: keyof ContactRequest, value: string) =>
-    setForm((prev) => ({ ...prev, [field]: value }));
+  const update = (field: keyof ContactRequest, value: string) => setForm((prev) => ({ ...prev, [field]: value }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("https://api.example.com/quote", {
+      await fetch("https://email.spadeservices.app/webhook/spade-pages/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
       toast.success("Quote request sent! We'll be in touch shortly.");
       setForm({
-        siteId: "calgary-landscape-supplies",
+        siteId: "093d1c28-6eac-4e24-860b-78d7524cdbf1",
         fullName: "",
         replyEmail: "",
         serviceType: "",
@@ -69,21 +68,21 @@ const QuoteForm = () => {
     "w-full px-4 py-3 rounded-md border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-shadow font-body";
 
   return (
-    <section id="quote" className="py-24">
+    <section id="quote" className="py-24 section-alt">
       <div className="container">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-3">
-              Free Estimate
-            </p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-              Request a Quote
-            </h2>
+            <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-3">Free Estimate</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">Request a Quote</h2>
             <p className="text-muted-foreground text-lg">
-              Tell us about your project and we'll get back to you within 24 hours. Serving Calgary, Okotoks & the Foothills.
+              Tell us about your project and we'll get back to you within 24 hours. Serving Calgary, Okotoks & the
+              Foothills.
             </p>
           </div>
-          <form onSubmit={handleSubmit} className="space-y-5 bg-card p-8 md:p-10 rounded-xl border border-border shadow-sm">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-5 bg-card p-8 md:p-10 rounded-xl border border-border shadow-sm"
+          >
             <div className="grid md:grid-cols-2 gap-5">
               <input
                 required
