@@ -6,9 +6,11 @@ import frontYard from "@/assets/gallery/front-yard.webp";
 import sideYard from "@/assets/gallery/side-yard.webp";
 import walkway from "@/assets/gallery/walkway.webp";
 import rockDetail from "@/assets/gallery/rock-detail.webp";
+import backyardLawn from "@/assets/gallery/backyard-lawn.webp";
 
 const images = [
   { src: lawnLarge, alt: "Large lawn installation", label: "Lawn Installation" },
+  { src: backyardLawn, alt: "Backyard lawn landscaping", label: "Backyard Lawn" },
   { src: sodInstall, alt: "Sod installation", label: "Sod Work" },
   { src: snowRemoval, alt: "Snow removal service", label: "Snow Removal" },
   { src: gravelPath, alt: "Gravel pathway", label: "Gravel Pathways" },
