@@ -15,9 +15,10 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-primary-foreground uppercase tracking-wider text-sm mb-4">Quick Links</h4>
             <div className="space-y-2 text-sm">
-              <a href="#services" className="block hover:text-accent transition-colors">Services</a>
-              <a href="#gallery" className="block hover:text-accent transition-colors">Our Work</a>
-              <a href="#quote" className="block hover:text-accent transition-colors">Get a Quote</a>
+              <a href="/#services" className="block hover:text-accent transition-colors">Services</a>
+              <a href="/bulk-materials" className="block hover:text-accent transition-colors">Bulk Materials</a>
+              <a href="/#gallery" className="block hover:text-accent transition-colors">Our Work</a>
+              <a href="/#quote" className="block hover:text-accent transition-colors">Get a Quote</a>
             </div>
           </div>
           <div>
