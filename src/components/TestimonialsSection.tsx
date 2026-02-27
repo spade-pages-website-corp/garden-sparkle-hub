@@ -66,25 +66,36 @@ const TestimonialsSection = () => {
           onMouseLeave={() => setIsPaused(false)}
         >
           {/* Card */}
-          <div className="bg-card rounded-lg p-8 md:p-12 shadow-sm min-h-[340px] md:min-h-[300px] flex flex-col justify-center transition-all duration-500 ease-in-out">
-            <Quote className="w-10 h-10 text-accent/30 mb-6 shrink-0" />
+          <div className="bg-card rounded-lg p-8 md:p-12 shadow-sm min-h-[340px] md:min-h-[300px] flex flex-col justify-center">
+            <Quote className="w-10 h-10 text-accent/30 mb-6 shrink-0 relative z-10" />
 
-            <div key={active} className="animate-fade-in" style={{ animationDuration: '0.5s' }}>
-              <blockquote className="text-foreground/80 text-lg md:text-xl leading-relaxed mb-8 font-light italic">
-                "{testimonials[active].quote}"
-              </blockquote>
+            <div className="relative">
+              {testimonials.map((t, i) => (
+                <div
+                  key={i}
+                  className={`transition-all duration-700 ease-in-out ${
+                    i === active
+                      ? "opacity-100 translate-y-0 relative"
+                      : "opacity-0 translate-y-2 absolute inset-0 pointer-events-none"
+                  }`}
+                >
+                  <blockquote className="text-foreground/80 text-lg md:text-xl leading-relaxed mb-8 font-light italic">
+                    "{t.quote}"
+                  </blockquote>
 
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-[2px] bg-accent" />
-                <div>
-                  <p className="font-display text-sm uppercase tracking-wider font-semibold">
-                    {testimonials[active].name}
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    {testimonials[active].location}
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-[2px] bg-accent" />
+                    <div>
+                      <p className="font-display text-sm uppercase tracking-wider font-semibold">
+                        {t.name}
+                      </p>
+                      <p className="text-muted-foreground text-sm">
+                        {t.location}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
 
