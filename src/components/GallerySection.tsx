@@ -1,5 +1,5 @@
 import snowRemoval from "@/assets/gallery/snow-removal.webp";
-import lawnLarge from "@/assets/gallery/lawn-large.webp";
+import pondLandscape from "@/assets/gallery/pond-landscape.webp";
 import sodInstall from "@/assets/gallery/sod-install.webp";
 import gravelPath from "@/assets/gallery/gravel-path.webp";
 import frontYard from "@/assets/gallery/front-yard.webp";
@@ -10,7 +10,7 @@ import backYard from "@/assets/gallery/backyard-lawn.webp";
 
 const images = [
   { src: rockDetail, alt: "Rock bed detail", label: "Rock Features" },
-  { src: lawnLarge, alt: "Large lawn installation", label: "Sod Installation" },
+  { src: pondLandscape, alt: "Backyard pond and landscaping", label: "Landscaping" },
   { src: sodInstall, alt: "Sod installation", label: "Sod Installation" },
   { src: snowRemoval, alt: "Snow removal service", label: "Snow Removal" },
   { src: gravelPath, alt: "Gravel pathway", label: "Gravel Pathways" },
