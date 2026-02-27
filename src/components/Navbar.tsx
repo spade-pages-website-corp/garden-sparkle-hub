@@ -1,29 +1,41 @@
+import { useState } from "react";
 import logo from "@/assets/logo.png";
-import { Phone } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
+
+const navLinks = [
+  { href: "/#services", label: "Services" },
+  { href: "/#gallery", label: "Our Work" },
+  { href: "/#quote", label: "Get a Quote" },
+  { href: "/bulk-materials", label: "Materials" },
+];
 
 const Navbar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/95 backdrop-blur-sm">
       <div className="container relative flex items-center py-3">
-        {/* Left: Logo */}
-        <a href="/#" className="flex items-center gap-3">
-          <img src={logo} alt="Calgary Landscape Supplies" className="h-14 w-auto" />
-        </a>
+        {/* Left: Hamburger (mobile/tablet) + Logo */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden text-primary-foreground/80 hover:text-accent transition-colors"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+          <a href="/#" className="flex items-center gap-3">
+            <img src={logo} alt="Calgary Landscape Supplies" className="h-14 w-auto" />
+          </a>
+        </div>
 
-        {/* Center: Nav Links */}
+        {/* Center: Nav Links (desktop) */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 font-display text-sm uppercase tracking-wider text-primary-foreground/80">
-          <a href="/#services" className="hover:text-accent transition-colors">
-            Services
-          </a>
-          <a href="/#gallery" className="hover:text-accent transition-colors">
-            Our Work
-          </a>
-          <a href="/#quote" className="hover:text-accent transition-colors">
-            Get a Quote
-          </a>
-          <a href="/bulk-materials" className="hover:text-accent transition-colors">
-            Materials
-          </a>
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} className="hover:text-accent transition-colors">
+              {link.label}
+            </a>
+          ))}
         </div>
 
         {/* Right: Phone Button */}
@@ -37,6 +49,24 @@ const Navbar = () => {
           </a>
         </div>
       </div>
+
+      {/* Mobile menu dropdown */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-primary-foreground/10 bg-foreground/95 backdrop-blur-sm">
+          <div className="container flex flex-col gap-4 py-4 font-display text-sm uppercase tracking-wider text-primary-foreground/80">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                className="hover:text-accent transition-colors py-1"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
