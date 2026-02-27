@@ -41,10 +41,10 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="border-t border-primary-foreground/10 pt-8 flex items-center justify-center gap-3 text-xs text-primary-foreground/40">
+        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col items-center gap-4 text-xs text-primary-foreground/40">
           <span>© {new Date().getFullYear()} Calgary Landscape Supplies. All rights reserved.</span>
           <a href="https://spadeservices.app" target="_blank" rel="noopener noreferrer">
-            <img src={spadePowered} alt="Powered by Spade" className="h-10 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+            <img src={spadePowered} alt="Powered by Spade" className="h-14 w-auto opacity-60 hover:opacity-100 transition-opacity" />
           </a>
         </div>
       </div>
