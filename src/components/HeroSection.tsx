@@ -15,7 +15,7 @@ const HeroSection = () => {
           </h1>
           <p className="text-primary-foreground/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg font-light">
             Family owned for over 15 years, bringing quality work to every project — from grading to finished landscapes
-            of any kind. <strong>Serving Calgary, Okotoks & the Foothills</strong>.
+            of any kind. Serving Calgary, Okotoks & the Foothills.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
