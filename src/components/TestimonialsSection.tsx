@@ -45,6 +45,30 @@ const TestimonialsSection = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
   }, []);
 
+  const prev = useCallback(() => {
+    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, []);
+
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    const dy = e.changedTouches[0].clientY - (touchStartY.current ?? 0);
+    touchStartX.current = null;
+    touchStartY.current = null;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next();
+      else prev();
+    }
+  }, [next, prev]);
+
   useEffect(() => {
     if (isPaused) return;
     const id = setInterval(next, 6000);
@@ -93,8 +117,10 @@ const TestimonialsSection = () => {
         >
           {/* Card */}
           <div
-            className="bg-card rounded-lg p-8 md:p-12 shadow-sm flex flex-col justify-center"
+            className="bg-card rounded-lg p-8 md:p-12 shadow-sm flex flex-col justify-center touch-pan-y"
             style={cardMinHeight ? { minHeight: `${cardMinHeight}px` } : undefined}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             <Quote className="w-10 h-10 text-accent/30 mb-6 shrink-0 relative z-10" />
 
