@@ -12,10 +12,15 @@ interface ContactRequest {
 }
 
 const serviceOptions = [
-  "Sod & Lawn Installation",
-  "Landscaping & Grading",
+  "Landscaping",
+  "Cleaning",
   "Snow Removal",
-  "Hardscaping",
+  "Landscape",
+  "Hardscape",
+  "Excavation",
+  "Spring cleanups",
+  "Snow removal services",
+  "Bulk landscape materials",
   "Other",
 ];
 
@@ -75,7 +80,7 @@ const QuoteForm = () => {
               Request a Quote
             </h2>
             <p className="text-muted-foreground text-lg">
-              Tell us about your project and we'll get back to you within 24 hours.
+              Tell us about your project and we'll get back to you within 24 hours. Serving Calgary, Okotoks & the Foothills.
             </p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-5 bg-card p-8 md:p-10 rounded-xl border border-border shadow-sm">

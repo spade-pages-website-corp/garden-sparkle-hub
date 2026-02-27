@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className="container relative z-10 py-32 pt-40">
         <div className="max-w-2xl animate-fade-up">
           <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-4">
-            Calgary's Trusted Landscaping Partner
+            Professional Landscaping
           </p>
           <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground leading-[1.1] mb-6">
             Transform Your
@@ -20,7 +20,7 @@ const HeroSection = () => {
             Outdoor Space
           </h1>
           <p className="text-primary-foreground/80 text-lg md:text-xl leading-relaxed mb-10 max-w-lg font-light">
-            Professional landscaping, sod installation, snow removal & hardscaping services for residential and commercial properties.
+            Family owned for over 15 years, bringing quality work to every project — from grading to finished landscapes of any kind. Serving Calgary, Okotoks & the Foothills.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a

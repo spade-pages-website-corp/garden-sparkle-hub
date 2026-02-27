@@ -14,11 +14,11 @@ const Navbar = () => {
           <a href="#quote" className="hover:text-accent transition-colors">Get a Quote</a>
         </div>
         <a
-          href="tel:+14035551234"
+          href="tel:5878971602"
           className="flex items-center gap-2 bg-accent text-accent-foreground px-5 py-2.5 rounded-md font-display text-sm uppercase tracking-wider hover:opacity-90 transition-opacity"
         >
           <Phone className="h-4 w-4" />
-          <span className="hidden sm:inline">Call Now</span>
+          <span className="hidden sm:inline">(587) 897-1602</span>
         </a>
       </div>
     </nav>

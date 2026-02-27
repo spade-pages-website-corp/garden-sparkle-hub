@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <img src={logo} alt="Calgary Landscape Supplies" className="h-20 w-auto mb-4" />
             <p className="text-sm leading-relaxed max-w-xs">
-              Professional landscaping services for Calgary and surrounding areas. Quality work, fair prices.
+              Family owned for over 15 years, bringing quality work to every project — from grading to finished landscapes of any kind.
             </p>
           </div>
           <div>
@@ -25,16 +25,16 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-accent shrink-0" />
-                <span>Calgary, Alberta, Canada</span>
+                <span>Calgary, Okotoks & Foothills, AB</span>
               </div>
-              <div className="flex items-center gap-3">
+              <a href="tel:5878971602" className="flex items-center gap-3 hover:text-accent transition-colors">
                 <Phone className="h-4 w-4 text-accent shrink-0" />
-                <span>(403) 555-1234</span>
-              </div>
-              <div className="flex items-center gap-3">
+                <span>(587) 897-1602</span>
+              </a>
+              <a href="mailto:kaden.calgarylandscapesupplies@gmail.com" className="flex items-center gap-3 hover:text-accent transition-colors">
                 <Mail className="h-4 w-4 text-accent shrink-0" />
-                <span>info@calgarylandscapesupplies.ca</span>
-              </div>
+                <span>kaden.calgarylandscapesupplies@gmail.com</span>
+              </a>
             </div>
           </div>
         </div>
