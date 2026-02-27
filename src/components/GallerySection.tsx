@@ -9,8 +9,8 @@ import rockDetail from "@/assets/gallery/rock-detail.webp";
 import backYard from "@/assets/gallery/backyard-lawn.webp";
 
 const images = [
+  { src: pondLandscape, alt: "Backyard pond and landscaping", label: "Backyard Landscaping" },
   { src: rockDetail, alt: "Rock bed detail", label: "Rock Features" },
-  { src: pondLandscape, alt: "Backyard pond and landscaping", label: "Landscaping" },
   { src: sodInstall, alt: "Sod installation", label: "Sod Installation" },
   { src: snowRemoval, alt: "Snow removal service", label: "Snow Removal" },
   { src: gravelPath, alt: "Gravel pathway", label: "Gravel Pathways" },
