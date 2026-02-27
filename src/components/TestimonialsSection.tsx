@@ -34,7 +34,7 @@ const testimonials = [
   },
 ];
 
-onst TestimonialsSection = () => {
+const TestimonialsSection = () => {
   const [active, setActive] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
