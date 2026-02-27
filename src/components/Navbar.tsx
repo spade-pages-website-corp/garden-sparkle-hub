@@ -8,7 +8,7 @@ const Navbar = () => {
         <a href="#" className="flex items-center gap-3">
           <img src={logo} alt="Calgary Landscape Supplies" className="h-14 w-auto" />
         </a>
-        <div className="hidden md:flex items-center gap-0 font-display text-sm uppercase tracking-wider text-primary-foreground/80">
+        <div className="hidden md:flex items-center gap-8 font-display text-sm uppercase tracking-wider text-primary-foreground/80 px-8">
           <a href="/#services" className="hover:text-accent transition-colors">
             Services
           </a>
