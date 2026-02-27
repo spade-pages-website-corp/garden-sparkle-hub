@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     quote:
-      "On behalf of Grow Calgary, we thank you for your donation of loam soil. Your donation will contribute greatly to helping Grow Calgary meet its goal of growing fresh, local produce. The harvested produce will be distributed as a donation to our partner food access agencies that feed those in need, including The Leftovers Foundation, Inn From the Cold, and the Calgary Women's Emergency Shelter.",
+      "On behalf of Grow Calgary, thank you for your donation of loam soil. Your contribution helps us grow fresh, local produce that is donated to partner food access agencies supporting those in need, including The Leftovers Foundation, Inn From the Cold, and the Calgary Women’s Emergency Shelter.",
     name: "Grow Calgary",
     location: "Community Partner",
   },
@@ -52,12 +52,8 @@ const TestimonialsSection = () => {
     <section className="py-24 section-alt">
       <div className="container">
         <div className="text-center mb-16">
-          <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-3">
-            Testimonials
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold">
-            What People Say
-          </h2>
+          <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-3">Testimonials</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">What People Say</h2>
         </div>
 
         <div
@@ -86,12 +82,8 @@ const TestimonialsSection = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-[2px] bg-accent" />
                     <div>
-                      <p className="font-display text-sm uppercase tracking-wider font-semibold">
-                        {t.name}
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        {t.location}
-                      </p>
+                      <p className="font-display text-sm uppercase tracking-wider font-semibold">{t.name}</p>
+                      <p className="text-muted-foreground text-sm">{t.location}</p>
                     </div>
                   </div>
                 </div>
@@ -106,9 +98,7 @@ const TestimonialsSection = () => {
                 key={i}
                 onClick={() => setActive(i)}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  i === active
-                    ? "bg-accent w-8"
-                    : "bg-border hover:bg-muted-foreground/40"
+                  i === active ? "bg-accent w-8" : "bg-border hover:bg-muted-foreground/40"
                 }`}
                 aria-label={`Go to testimonial ${i + 1}`}
               />
