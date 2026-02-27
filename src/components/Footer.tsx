@@ -50,11 +50,11 @@ const Footer = () => {
                 <span>Kaden — (587) 897-1602</span>
               </a>
               <a
-                href="mailto:info@calgarylandscapesupplies.ca"
+                href="mailto:info@calgarylandscapesupplies.com"
                 className="flex items-center gap-3 hover:text-accent transition-colors"
               >
                 <Mail className="h-4 w-4 text-accent shrink-0" />
-                <span>info@calgarylandscapesupplies.ca</span>
+                <span>info@calgarylandscapesupplies.com</span>
               </a>
               <a
                 href="https://www.instagram.com/calgarylandscapesupply?igsh=aDQzMGRvYXY4ajdp&utm_source=qr"
