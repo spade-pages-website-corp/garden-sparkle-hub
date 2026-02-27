@@ -6,16 +6,18 @@ import frontYard from "@/assets/gallery/front-yard.webp";
 import sideYard from "@/assets/gallery/side-yard.webp";
 import walkway from "@/assets/gallery/walkway.webp";
 import rockDetail from "@/assets/gallery/rock-detail.webp";
+import backYard from "@/assets/gallery/backyard-lawn.webp";
 
 const images = [
   { src: lawnLarge, alt: "Large lawn installation", label: "Sod Installation" },
-  { src: sodInstall, alt: "Sod installation", label: "Sod Work" },
+  { src: sodInstall, alt: "Sod installation", label: "Sod Installation" },
   { src: snowRemoval, alt: "Snow removal service", label: "Snow Removal" },
   { src: gravelPath, alt: "Gravel pathway", label: "Gravel Pathways" },
   { src: frontYard, alt: "Front yard landscaping", label: "Front Yard" },
   { src: walkway, alt: "Walkway installation", label: "Walkways" },
   { src: sideYard, alt: "Side yard work", label: "Side Yards" },
   { src: rockDetail, alt: "Rock bed detail", label: "Rock Features" },
+  { src: backYard, alt: "Back yard landscaping", label: "Sod Installation" },
 ];
 
 const GallerySection = () => {
