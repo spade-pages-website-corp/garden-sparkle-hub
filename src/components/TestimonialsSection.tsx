@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import { Quote } from "lucide-react";
 
 const testimonials = [
@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     quote:
-      "On behalf of Grow Calgary, thank you for your donation of loam soil. Your contribution helps us grow fresh, local produce that is donated to partner food access agencies supporting those in need, including The Leftovers Foundation, Inn From the Cold, and the Calgary Women’s Emergency Shelter.",
+      "On behalf of Grow Calgary, we thank you for your donation of loam soil. Your donation will contribute greatly to helping Grow Calgary meet its goal of growing fresh, local produce. The harvested produce will be distributed as a donation to our partner food access agencies that feed those in need, including The Leftovers Foundation, Inn From the Cold, and the Calgary Women's Emergency Shelter.",
     name: "Grow Calgary",
     location: "Community Partner",
   },
@@ -34,9 +34,12 @@ const testimonials = [
   },
 ];
 
-const TestimonialsSection = () => {
+onst TestimonialsSection = () => {
   const [active, setActive] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+
+  const [cardMinHeight, setCardMinHeight] = useState<number | null>(null);
+  const measureRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   const next = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -48,12 +51,45 @@ const TestimonialsSection = () => {
     return () => clearInterval(id);
   }, [isPaused, next]);
 
+  const recomputeMinHeight = useCallback(() => {
+    // measure tallest slide content
+    const heights = measureRefs.current
+      .map((el) => el?.getBoundingClientRect().height ?? 0)
+      .filter(Boolean);
+
+    const max = Math.max(0, ...heights);
+
+    // Add a tiny buffer to avoid sub-pixel jitter
+    setCardMinHeight(max ? Math.ceil(max) : null);
+  }, []);
+
+  useLayoutEffect(() => {
+    recomputeMinHeight();
+
+    // Recompute on resize (mobile/desktop changes, font loading, etc.)
+    const onResize = () => recomputeMinHeight();
+    window.addEventListener("resize", onResize);
+
+    // Optional: more robust if fonts/images affect layout
+    const ro = new ResizeObserver(() => recomputeMinHeight());
+    measureRefs.current.forEach((el) => el && ro.observe(el));
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      ro.disconnect();
+    };
+  }, [recomputeMinHeight]);
+
   return (
     <section className="py-24 section-alt">
       <div className="container">
         <div className="text-center mb-16">
-          <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-3">Testimonials</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold">What People Say</h2>
+          <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-3">
+            Testimonials
+          </p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold">
+            What People Say
+          </h2>
         </div>
 
         <div
@@ -62,7 +98,10 @@ const TestimonialsSection = () => {
           onMouseLeave={() => setIsPaused(false)}
         >
           {/* Card */}
-          <div className="bg-card rounded-lg p-8 md:p-12 shadow-sm min-h-[340px] md:min-h-[300px] flex flex-col justify-center">
+          <div
+            className="bg-card rounded-lg p-8 md:p-12 shadow-sm flex flex-col justify-center"
+            style={cardMinHeight ? { minHeight: `${cardMinHeight}px` } : undefined}
+          >
             <Quote className="w-10 h-10 text-accent/30 mb-6 shrink-0 relative z-10" />
 
             <div className="relative">
@@ -82,8 +121,36 @@ const TestimonialsSection = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-[2px] bg-accent" />
                     <div>
-                      <p className="font-display text-sm uppercase tracking-wider font-semibold">{t.name}</p>
+                      <p className="font-display text-sm uppercase tracking-wider font-semibold">
+                        {t.name}
+                      </p>
                       <p className="text-muted-foreground text-sm">{t.location}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Hidden measuring DOM (doesn't affect layout) */}
+          <div className="absolute -left-[9999px] top-0 w-full opacity-0 pointer-events-none">
+            <div className="bg-card rounded-lg p-8 md:p-12 shadow-sm">
+              <Quote className="w-10 h-10 mb-6" />
+              {testimonials.map((t, i) => (
+                <div
+                  key={`measure-${i}`}
+                  ref={(el) => {
+                    measureRefs.current[i] = el;
+                  }}
+                >
+                  <blockquote className="text-lg md:text-xl leading-relaxed mb-8 font-light italic">
+                    "{t.quote}"
+                  </blockquote>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-[2px]" />
+                    <div>
+                      <p className="text-sm uppercase tracking-wider font-semibold">{t.name}</p>
+                      <p className="text-sm">{t.location}</p>
                     </div>
                   </div>
                 </div>
