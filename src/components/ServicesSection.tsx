@@ -1,25 +1,35 @@
-import { Shovel, Snowflake, TreePine, Hammer } from "lucide-react";
+import { Shovel, Snowflake, TreePine, Hammer, Truck, Sparkles } from "lucide-react";
 
 const services = [
   {
     icon: TreePine,
-    title: "Sod & Lawn Installation",
-    description: "Fresh sod installation and lawn grading for lush, green yards that last.",
-  },
-  {
-    icon: Shovel,
-    title: "Landscaping & Grading",
-    description: "Complete landscape design, gravel pathways, rock beds, and property grading.",
-  },
-  {
-    icon: Snowflake,
-    title: "Snow Removal",
-    description: "Reliable commercial and residential snow clearing throughout the winter season.",
+    title: "Landscaping",
+    description: "Complete landscape design, installation, and property grading for residential and commercial properties.",
   },
   {
     icon: Hammer,
     title: "Hardscaping",
-    description: "Walkways, retaining walls, driveways, and decorative stone features.",
+    description: "Walkways, retaining walls, driveways, patios, and decorative stone features built to last.",
+  },
+  {
+    icon: Snowflake,
+    title: "Snow Removal",
+    description: "Reliable commercial and residential snow clearing services throughout the winter season.",
+  },
+  {
+    icon: Shovel,
+    title: "Excavation",
+    description: "Professional excavation and grading services for any size project.",
+  },
+  {
+    icon: Sparkles,
+    title: "Spring Cleanups",
+    description: "Get your property looking fresh after winter with our thorough spring cleanup services.",
+  },
+  {
+    icon: Truck,
+    title: "Bulk Materials",
+    description: "Quality bulk landscape materials including soil, gravel, mulch, and decorative rock.",
   },
 ];
 
@@ -31,7 +41,7 @@ const ServicesSection = () => {
           <p className="font-display text-accent uppercase tracking-[0.3em] text-sm mb-3">What We Do</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold">Our Services</h2>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <div
               key={service.title}
